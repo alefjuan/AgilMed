@@ -20,6 +20,8 @@
 - ✅ Notificações de confirmação e lembretes de consultas agendadas.
 
 ## Protótipos de tela
+Consultar em:
+https://www.figma.com/design/4t4uPBzriZPBZ6spD4ElFU/Mobile?node-id=0-1&t=LPD6UYTNBH4Sn2Ru-1
 
 ## Modelagem do banco
 https://miro.com/app/board/uXjVLQBN2P4=/?share_link_id=257094076270

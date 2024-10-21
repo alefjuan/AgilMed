@@ -13,10 +13,10 @@
 
 ### Funcionalidades futuras (trabalhos futuros)
 
-- ✅ Notificações de confirmação e lembretes de consultas agendadas. Integração com sistemas de pagamento para consultas particulares.
-- ✅ Notificações de confirmação e lembretes de consultas agendadas. Teleconsulta integrada para atendimentos online.
-- ✅ Notificações de confirmação e lembretes de consultas agendadas. Sincronização com calendários pessoais (Google Calendar, Outlook).
-- ✅ Notificações de confirmação e lembretes de consultas agendadas. Avaliação e feedback do paciente sobre o atendimento.
+- ✅ Integração com sistemas de pagamento para consultas particulares.
+- ✅ Teleconsulta integrada para atendimentos online.
+- ✅ Sincronização com calendários pessoais (Google Calendar, Outlook).
+- ✅ Avaliação e feedback do paciente sobre o atendimento.
 - ✅ Notificações de confirmação e lembretes de consultas agendadas.
 
 ## Protótipos de tela

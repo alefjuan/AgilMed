@@ -23,7 +23,7 @@
 
 ## Modelagem do banco
 https://miro.com/app/board/uXjVLQBN2P4=/?share_link_id=257094076270
-- SQLite
+- PostgreSQL
 - Relacional
 ![image](https://github.com/user-attachments/assets/d3299358-3b9c-4c26-bd18-bbef9b14bad1)
 

@@ -82,21 +82,5 @@ O modelo do banco de dados relacional (PostgreSQL) pode ser encontrado [neste li
 
 ---
 
-## Tecnologias Utilizadas
-
-- **Linguagem**: [Defina a linguagem principal, ex: JavaScript, TypeScript, etc.]
-- **Framework**: [Defina o framework principal, ex: React Native, Flutter]
-- **Banco de Dados**: PostgreSQL
-- **Plataforma de Hospedagem**: [Nome da plataforma, se aplicável]
-- **Design**: Figma
-
-## Como Contribuir
-
-1. Faça um **fork** do repositório.
-2. Crie uma nova branch: `git checkout -b minha-branch`.
-3. Faça suas modificações e adicione os commits: `git commit -m 'Minha nova feature'`.
-4. Envie para sua branch: `git push origin minha-branch`.
-5. Abra um **Pull Request** para revisar sua contribuição.
-
 ## Licença
 MIT License

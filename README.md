@@ -1,54 +1,102 @@
 # ÁgilMed
 
-## Sobre o app
+ÁgilMed é uma ferramenta de gerenciamento de horários projetada para clínicas, permitindo que os pacientes agendem consultas de forma prática e intuitiva. O objetivo do aplicativo é simplificar o processo de marcação de consultas, eliminando a necessidade de ligações telefônicas, e garantir uma experiência moderna e eficiente para os pacientes e clínicas.
 
-ÁgilMed é uma ferramenta de gerenciamento de horários projetada para clínicas, permitindo que os pacientes agendem consultas de forma prática e intuitiva. O objetivo é simplificar o processo de marcação de horários, eliminando a necessidade de ligações telefônicas, e garantindo uma experiência mais moderna e eficiente tanto para pacientes quanto para as clínicas.
+## Funcionalidades Principais
 
-### Funcionalidades principais
-
-- ✅ Permitir que pacientes consultem dias e horários disponíveis para marcação de consultas.
-- ✅ Agendamento de consultas online, diretamente pelo app.
+- ✅ Consultar dias e horários disponíveis para marcação de consultas.
+- ✅ Agendar consultas online diretamente pelo app.
 - ✅ Cancelamento e remarcação de consultas pelo usuário.
 - ✅ Visualização do histórico de consultas do paciente.
 
-### Funcionalidades futuras (trabalhos futuros)
+### Funcionalidades Futuras
+- 💡 Integração com sistemas de pagamento para consultas particulares.
+- 💡 Teleconsulta integrada para atendimentos online.
+- 💡 Sincronização com calendários pessoais (Google Calendar, Outlook).
+- 💡 Avaliação e feedback do paciente sobre o atendimento.
+- 💡 Notificações de confirmação e lembretes de consultas agendadas.
 
-- ✅ Integração com sistemas de pagamento para consultas particulares.
-- ✅ Teleconsulta integrada para atendimentos online.
-- ✅ Sincronização com calendários pessoais (Google Calendar, Outlook).
-- ✅ Avaliação e feedback do paciente sobre o atendimento.
-- ✅ Notificações de confirmação e lembretes de consultas agendadas.
+## Protótipos de Tela
+Você pode acessar o protótipo do design das telas [aqui](https://www.figma.com/design/4t4uPBzriZPBZ6spD4ElFU/Mobile?node-id=0-1&t=LPD6UYTNBH4Sn2Ru-1).
 
-## Protótipos de tela
-Consultar em:
-https://www.figma.com/design/4t4uPBzriZPBZ6spD4ElFU/Mobile?node-id=0-1&t=LPD6UYTNBH4Sn2Ru-1
+## Modelagem do Banco de Dados
+O modelo do banco de dados relacional (PostgreSQL) pode ser encontrado [neste link](https://miro.com/app/board/uXjVLQBN2P4=/?share_link_id=257094076270).
 
-## Modelagem do banco
-https://miro.com/app/board/uXjVLQBN2P4=/?share_link_id=257094076270
-- PostgreSQL
-- Relacional
-![image](https://github.com/user-attachments/assets/d3299358-3b9c-4c26-bd18-bbef9b14bad1)
+## Sprints
 
-## Planejamento de sprints
+### **Sprint 1: 15/10 - 31/10**
+**Objetivo**: Estruturação básica do aplicativo.
+- Implementar o **roteamento** entre telas.
+- Criar o **esqueleto das principais telas** (login, consulta de horários, histórico).
+- Estilização inicial com **dados simulados**.
+- Realizar **testes iniciais** de navegação.
 
-### Checkpoint 2: Roteamento e Esqueleto de Telas 
-
-- Estrutura básica do app.
-- Implementação do roteamento para navegação entre as telas.
-- Estilização inicial das telas com dados simulados.
-
-### Checkpoint 3: Integração de Funcionalidades
-
-- Integração com o banco de dados.
-- Implementação das funcionalidades de agendamento e notificações.
-- Testes de usabilidade e ajuste de bugs.
-
-### Checkpoint 4: Entrega do Aplicativo
-
-- Finalização e exportação para APK.
-- Funcionalidades básicas totalmente operacionais.
-- Inclusão de funcionalidades adicionais selecionadas.
+**Checkpoint 2**: Estrutura e navegação básica completa.
 
 ---
 
-Esse planejamento pode ser ajustado conforme o andamento do desenvolvimento e o feedback recebido.
+### **Sprint 2: 01/11 - 15/11**
+**Objetivo**: Conectar o app ao banco de dados.
+- Configurar **PostgreSQL**.
+- Implementar **consulta de horários disponíveis**.
+- Iniciar a funcionalidade de **agendamento de consultas**.
+- Testes de usabilidade.
+
+---
+
+### **Sprint 3: 16/11 - 30/11**
+**Objetivo**: Notificações e ajustes nas funcionalidades de agendamento.
+- Desenvolver **notificações** (confirmação e lembretes).
+- Adicionar **cancelamento e remarcação** de consultas.
+- Implementar **visualização do histórico** de consultas.
+- Ajustes com base em feedback dos testes.
+
+---
+
+### **Sprint 4: 01/12 - 15/12**
+**Objetivo**: Ajustes finais e otimizações.
+- Refatoração do código.
+- **Testes de carga** no banco de dados.
+- Verificação da **integração** entre todas as telas e funcionalidades.
+
+**Checkpoint 3**: Funcionalidades de agendamento e notificações 100% funcionais.
+
+---
+
+### **Sprint 5: 16/12 - 31/12**
+**Objetivo**: Preparação para o lançamento.
+- Finalizar todas as **funcionalidades básicas**.
+- **Exportação para APK**.
+- **Testes** em dispositivos reais.
+- Resolver **bugs críticos**.
+
+---
+
+### **Sprint 6: 01/01 - 31/01**
+**Objetivo**: Funcionalidades adicionais e entrega final.
+- Implementar funcionalidades extras como **pagamentos** e **teleconsulta**.
+- Revisar **sincronização com calendários pessoais**.
+- Realizar o **deploy** final.
+
+**Checkpoint 4**: Entrega do aplicativo completo.
+
+---
+
+## Tecnologias Utilizadas
+
+- **Linguagem**: [Defina a linguagem principal, ex: JavaScript, TypeScript, etc.]
+- **Framework**: [Defina o framework principal, ex: React Native, Flutter]
+- **Banco de Dados**: PostgreSQL
+- **Plataforma de Hospedagem**: [Nome da plataforma, se aplicável]
+- **Design**: Figma
+
+## Como Contribuir
+
+1. Faça um **fork** do repositório.
+2. Crie uma nova branch: `git checkout -b minha-branch`.
+3. Faça suas modificações e adicione os commits: `git commit -m 'Minha nova feature'`.
+4. Envie para sua branch: `git push origin minha-branch`.
+5. Abra um **Pull Request** para revisar sua contribuição.
+
+## Licença
+MIT License

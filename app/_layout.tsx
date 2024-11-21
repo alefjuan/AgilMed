@@ -32,7 +32,8 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="index" options={{ headerShown: false }}/>
         <Stack.Screen name="+not-found" />
-        <Stack.Screen name="SpecialtyListScreen" options={{ title:"Lista de Especialidades" }} />
+        <Stack.Screen name="SpecialtyList" options={{ title:"Lista de Especialidades" }} />
+        <Stack.Screen name="appointment" options={{ title:"Agendamento" }} />
       </Stack>
     </ThemeProvider>
   );

@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Colors } from "../constants/Colors";
-import { useNavigation } from '@react-navigation/native';
-import SpecialtyListScreen from './SpecialtyListScreen';
-
+import { useRouter } from 'expo-router';
 
 export default function LoginScreen() {
+  const router = useRouter();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigation = useNavigation();
 
   const handleLogin = () => {
-    if (username === 'root' && password === 'root') {
-      // Navegar para a próxima tela se usuário e senha forem 'root'
-      navigation.navigate('SpecialtyListScreen' as never);
+    if (username === 'Root' && password === 'Root') {
+      router.push('/SpecialtyList');
+      Alert.alert('Sucesso', 'Login realizado com sucesso!', [
+        { text: 'OK' },
+      ]);
     } else {
-      // Exibe um alerta se as credenciais estiverem incorretas
-      Alert.alert('Erro', 'Usuário ou senha incorretos');
+      Alert.alert('Erro', 'Usuário ou senha incorretos', [
+        { text: 'OK' },
+      ]);
     }
   };
 
@@ -147,7 +148,6 @@ const styles = StyleSheet.create({
   footer: {
     alignItems: 'center',
     color: Colors.light.primary
-    
   },
   footerText: {
     color: Colors.light.primary,

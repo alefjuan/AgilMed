@@ -1,50 +1,86 @@
-# Welcome to your Expo app 👋
+# ÁgilMed
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+ÁgilMed é uma ferramenta de gerenciamento de horários projetada para clínicas, permitindo que os pacientes agendem consultas de forma prática e intuitiva. O objetivo do aplicativo é simplificar o processo de marcação de consultas, eliminando a necessidade de ligações telefônicas, e garantir uma experiência moderna e eficiente para os pacientes e clínicas.
 
-## Get started
+## Funcionalidades Principais
 
-1. Install dependencies
+- ✅ Consultar dias e horários disponíveis para marcação de consultas.
+- ✅ Agendar consultas online diretamente pelo app.
+- ✅ Cancelamento e remarcação de consultas pelo usuário.
+- ✅ Visualização do histórico de consultas do paciente.
 
-   ```bash
-   npm install
-   ```
+### Funcionalidades Futuras
+- 💡 Integração com sistemas de pagamento para consultas particulares.
+- 💡 Teleconsulta integrada para atendimentos online.
+- 💡 Sincronização com calendários pessoais (Google Calendar, Outlook).
+- 💡 Avaliação e feedback do paciente sobre o atendimento.
+- 💡 Notificações de confirmação e lembretes de consultas agendadas.
 
-2. Start the app
+## Protótipos de Tela
+Você pode acessar o protótipo do design das telas [aqui](https://www.figma.com/design/4t4uPBzriZPBZ6spD4ElFU/Mobile?node-id=0-1&t=LPD6UYTNBH4Sn2Ru-1).
 
-   ```bash
-    npx expo start
-   ```
+## Modelagem do Banco de Dados
+O modelo do banco de dados relacional (PostgreSQL) pode ser encontrado [neste link](https://miro.com/app/board/uXjVLQBN2P4=/?share_link_id=257094076270).
 
-In the output, you'll find options to open the app in a
+## Sprints
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### **Sprint 1: 15/10 - 31/10**
+**Objetivo**: Estruturação básica do aplicativo.
+- Implementar o **roteamento** entre telas.
+- Criar o **esqueleto das principais telas** (login, consulta de horários, histórico).
+- Estilização inicial com **dados simulados**.
+- Realizar **testes iniciais** de navegação.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+**Checkpoint 2**: Estrutura e navegação básica completa.
 
-## Get a fresh project
+---
 
-When you're ready, run:
+### **Sprint 2: 01/11 - 15/11**
+**Objetivo**: Conectar o app ao banco de dados.
+- Configurar **PostgreSQL**.
+- Implementar **consulta de horários disponíveis**.
+- Iniciar a funcionalidade de **agendamento de consultas**.
+- Testes de usabilidade.
 
-```bash
-npm run reset-project
-```
+---
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### **Sprint 3: 16/11 - 30/11**
+**Objetivo**: Notificações e ajustes nas funcionalidades de agendamento.
+- Desenvolver **notificações** (confirmação e lembretes).
+- Adicionar **cancelamento e remarcação** de consultas.
+- Implementar **visualização do histórico** de consultas.
+- Ajustes com base em feedback dos testes.
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+### **Sprint 4: 01/12 - 15/12**
+**Objetivo**: Ajustes finais e otimizações.
+- Refatoração do código.
+- **Testes de carga** no banco de dados.
+- Verificação da **integração** entre todas as telas e funcionalidades.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+**Checkpoint 3**: Funcionalidades de agendamento e notificações 100% funcionais.
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+### **Sprint 5: 16/12 - 31/12**
+**Objetivo**: Preparação para o lançamento.
+- Finalizar todas as **funcionalidades básicas**.
+- **Exportação para APK**.
+- **Testes** em dispositivos reais.
+- Resolver **bugs críticos**.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+### **Sprint 6: 01/01 - 31/01**
+**Objetivo**: Funcionalidades adicionais e entrega final.
+- Implementar funcionalidades extras como **pagamentos** e **teleconsulta**.
+- Revisar **sincronização com calendários pessoais**.
+- Realizar o **deploy** final.
+
+**Checkpoint 4**: Entrega do aplicativo completo.
+
+---
+
+## Licença
+MIT License

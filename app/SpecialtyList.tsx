@@ -1,18 +1,26 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import { Colors } from "/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
+import { Colors } from '/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors';
+import { useRouter } from 'expo-router';
 
-//futuramente os itens vão vir do banco
 export default function SpecialtyListScreen() {
+  const router = useRouter(); 
+
   const specialties = [
-    "Cardiologia",
-    "Pediatria",
-    "Dermatologia",
-    "Oftalmologia",
-    "Psiquiatria",
-    "Endocrinologia",
-    "Ortopedia",
-    "Geral"
+    'Cardiologia',
+    'Pediatria',
+    'Dermatologia',
+    'Oftalmologia',
+    'Psiquiatria',
+    'Endocrinologia',
+    'Ortopedia',
+    'Geral',
   ];
 
   return (
@@ -20,7 +28,11 @@ export default function SpecialtyListScreen() {
       <Text style={styles.title}>Escolha a especialidade</Text>
       <ScrollView contentContainerStyle={styles.buttonContainer}>
         {specialties.map((specialty, index) => (
-          <TouchableOpacity key={index} style={styles.button}>
+          <TouchableOpacity
+            key={index}
+            style={styles.button}
+            onPress={() => router.push(`/appointment?specialty=${specialty}`)}
+          >
             <Text style={styles.buttonText}>{specialty}</Text>
           </TouchableOpacity>
         ))}
@@ -53,8 +65,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     marginVertical: 10,
-    width: 300
-    
+    width: 300,
   },
   buttonText: {
     color: 'white',

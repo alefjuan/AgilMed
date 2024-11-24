@@ -31,7 +31,7 @@ export default function SpecialtyListScreen() {
           <TouchableOpacity
             key={index}
             style={styles.button}
-            onPress={() => router.push(`/appointment?specialty=${specialty}`)}
+            onPress={() => router.push(`/Appointment?specialty=${specialty}`)}
           >
             <Text style={styles.buttonText}>{specialty}</Text>
           </TouchableOpacity>

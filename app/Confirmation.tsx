@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: 'center',
     width: '100%',
-    justifyContent: 'center', // Centraliza o conteúdo dentro do card
+    justifyContent: 'center', 
     height:"60%"
     
   },

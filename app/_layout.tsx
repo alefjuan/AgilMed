@@ -34,6 +34,7 @@ export default function RootLayout() {
         <Stack.Screen name="+not-found" />
         <Stack.Screen name="SpecialtyList" options={{ title:"Lista de Especialidades" }} />
         <Stack.Screen name="appointment" options={{ title:"Agendamento" }} />
+        <Stack.Screen name="RegisterScreen" options={{ title:"Cadastre-se" }} />
       </Stack>
     </ThemeProvider>
   );

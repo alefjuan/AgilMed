@@ -10,13 +10,13 @@ import { useGlobalSearchParams, useRouter } from 'expo-router';
 import { Colors } from '/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors';
 
 const getDaysInMonth = (month: number, year: number): number => {
-  return new Date(year, month + 1, 0).getDate(); // Retorna a quantidade de dias no mês
+  return new Date(year, month + 1, 0).getDate();
 };
 
 const generateUniqueId = (): string => {
   const now = new Date();
-  const datePart = now.toISOString().split('T')[0]; // Obtém a data no formato YYYY-MM-DD
-  const timePart = now.getTime().toString(); // Obtém o timestamp em milissegundos
+  const datePart = now.toISOString().split('T')[0];
+  const timePart = now.getTime().toString();
   return `${datePart}-${timePart}`;
 };
 
@@ -55,10 +55,10 @@ export default function AppointmentScreen() {
       let newYear = prev.year;
 
       if (newMonth < 0) {
-        newMonth = 11; // Volta para Dezembro
+        newMonth = 11; 
         newYear -= 1;
       } else if (newMonth > 11) {
-        newMonth = 0; // Avança para Janeiro
+        newMonth = 0;
         newYear += 1;
       }
 
@@ -267,14 +267,14 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 8,
     width: '90%',
-    justifyContent: 'center', // Garante o alinhamento vertical
-    alignItems: 'center', // Garante o alinhamento horizontal
+    justifyContent: 'center', 
+    alignItems: 'center',
   },
   timeText: {
     color: '#FFF',
     fontWeight: '600',
     fontSize: 18,
-    textAlign: 'center', // Garante que o texto seja centralizado horizontalmente
+    textAlign: 'center',
   },
   selectedTime: {
     backgroundColor: '#FFD700',

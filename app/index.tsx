@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  Alert,
+} from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 import { Colors } from "../constants/Colors";
-import { useRouter } from 'expo-router';
+import { useRouter } from "expo-router";
 
 export default function LoginScreen() {
   const router = useRouter();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    if (username === 'Root' && password === 'Root') {
-      router.push('/SpecialtyList');
-      Alert.alert('Sucesso', 'Login realizado com sucesso!', [
-        { text: 'OK' },
-      ]);
+    if (username === "Root" && password === "Root") {
+      router.push("/SpecialtyList");
+      Alert.alert("Sucesso", "Login realizado com sucesso!", [{ text: "OK" }]);
     } else {
-      Alert.alert('Erro', 'Usuário ou senha incorretos', [
-        { text: 'OK' },
-      ]);
+      Alert.alert("Erro", "Usuário ou senha incorretos", [{ text: "OK" }]);
     }
   };
 
@@ -26,14 +30,20 @@ export default function LoginScreen() {
     <View style={styles.container}>
       {/* Logo e Título */}
       <View style={styles.logoContainer}>
-        <Image source={require('../assets/images/login/logo.png')} style={styles.logo} />
+        <Image
+          source={require("../assets/images/login/logo.png")}
+          style={styles.logo}
+        />
         <Text style={styles.title}>ÁgilMed</Text>
         <Text style={styles.subtitle}>Sua saúde a qualquer hora</Text>
       </View>
 
       {/* Campo de Usuário */}
       <View style={styles.inputContainer}>
-        <Image source={require('../assets/images/login/person.png')} style={styles.icons} />
+        <Image
+          source={require("../assets/images/login/person.png")}
+          style={styles.icons}
+        />
         <TextInput
           placeholder="Usuário"
           placeholderTextColor="#555"
@@ -45,7 +55,10 @@ export default function LoginScreen() {
 
       {/* Campo de Senha */}
       <View style={styles.inputContainer}>
-        <Image source={require('../assets/images/login/password.png')} style={styles.icons} />
+        <Image
+          source={require("../assets/images/login/password.png")}
+          style={styles.icons}
+        />
         <TextInput
           placeholder="Senha"
           placeholderTextColor="#555"
@@ -70,7 +83,15 @@ export default function LoginScreen() {
       {/* Esqueci minha senha e Cadastro */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>Esqueceu a senha?</Text>
-        <Text style={styles.footerText}>É novo? <Text style={styles.signUp}>Cadastre-se</Text></Text>
+        <Text style={styles.footerText}>
+          É novo?{" "}
+          <Text
+            style={styles.signUp}
+            onPress={() => router.push("/RegisterScreen")}
+          >
+            Cadastre-se
+          </Text>
+        </Text>
       </View>
     </View>
   );
@@ -80,12 +101,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.dark.background,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     padding: 20,
   },
   logoContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     marginBottom: 40,
   },
   logo: {
@@ -95,59 +116,58 @@ const styles = StyleSheet.create({
   },
   icons: {
     width: 24,
-    height: 24
+    height: 24,
   },
   title: {
     color: Colors.light.primary,
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   subtitle: {
     color: Colors.light.primary,
     fontSize: 16,
   },
   inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     backgroundColor: Colors.dark.inputBackground,
     borderRadius: 10,
-    width: '100%',
+    width: "100%",
     paddingHorizontal: 10,
     marginVertical: 10,
   },
   input: {
     flex: 1,
-    color: 'white',
+    color: "white",
     paddingHorizontal: 10,
     paddingVertical: 15,
   },
   rememberContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'flex-start',
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "flex-start",
     marginVertical: 10,
   },
   rememberText: {
     color: Colors.light.primary,
-    marginLeft: 5
+    marginLeft: 5,
   },
   loginButton: {
     backgroundColor: Colors.light.primary,
     borderRadius: 10,
-    width: '100%',
+    width: "100%",
     paddingVertical: 15,
-    alignItems: 'center',
+    alignItems: "center",
     marginVertical: 20,
-
   },
   loginButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: "white",
+    fontWeight: "bold",
     fontSize: 16,
   },
   footer: {
-    alignItems: 'center',
-    color: Colors.light.primary
+    alignItems: "center",
+    color: Colors.light.primary,
   },
   footerText: {
     color: Colors.light.primary,
@@ -155,6 +175,6 @@ const styles = StyleSheet.create({
   },
   signUp: {
     color: Colors.light.primary,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });

@@ -1,4 +1,3 @@
-// Tela de Cadastro com integração à API
 import React, { useState } from "react";
 import {
   View,
@@ -10,14 +9,20 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { Colors } from "/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors";
+import * as z from "zod";
 
-type FormData = {
-  name: string;
-  email: string;
-  cpf: string;
-  password: string;
-  telephone?: string;
-};
+// Defina o esquema de validação com Zod
+const formDataSchema = z.object({
+  name: z.string().nonempty("Nome é obrigatório"),
+  email: z.string().email("Email inválido"),
+  cpf: z
+    .string()
+    .regex(/^\d{11}$/, "CPF deve conter 11 dígitos numéricos"),
+  password: z.string().min(5, "Senha deve ter no mínimo 6 caracteres"),
+  telephone: z.string().optional(),
+});
+
+type FormData = z.infer<typeof formDataSchema>;
 
 export default function RegisterScreen() {
   const router = useRouter();
@@ -35,8 +40,11 @@ export default function RegisterScreen() {
   };
 
   const handleSignup = async () => {
-    setLoading(true);
     try {
+      // Valide os dados antes de enviá-los
+      formDataSchema.parse(formData);
+
+      setLoading(true);
       const response = await fetch(
         "https://backend-agilmed.onrender.com/clients",
         {
@@ -53,7 +61,11 @@ export default function RegisterScreen() {
         Alert.alert("Erro", errorData.message || "Erro ao realizar cadastro.");
       }
     } catch (error) {
-      Alert.alert("Erro", "Não foi possível realizar o cadastro.");
+      if (error instanceof z.ZodError) {
+        Alert.alert("Erro de validação", error.errors[0].message);
+      } else {
+        Alert.alert("Erro", "Não foi possível realizar o cadastro.");
+      }
     } finally {
       setLoading(false);
     }

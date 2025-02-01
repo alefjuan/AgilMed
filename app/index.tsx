@@ -13,6 +13,12 @@ import { Colors } from "../constants/Colors";
 import { useRouter } from "expo-router";
 import api from "../services/api";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as z from "zod";
+
+const loginSchema = z.object({
+  email: z.string().email("Email inválido"),
+  password: z.string().min(6, "Senha deve ter no mínimo 6 caracteres"),
+});
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -21,6 +27,8 @@ export default function LoginScreen() {
 
   const handleLogin = async () => {
     try {
+      loginSchema.parse({ email, password });
+
       const response = await api.post("/login", { email, password });
       const clientId = response.data.client.id;
       const clientName = response.data.client.name;
@@ -32,7 +40,11 @@ export default function LoginScreen() {
         params: { client_id: clientId },
       });
     } catch (error) {
-      Alert.alert("Erro", "Usuário ou senha incorretos", [{ text: "OK" }]);
+      if (error instanceof z.ZodError) {
+        Alert.alert("Erro de validação", error.errors[0].message);
+      } else {
+        Alert.alert("Erro", "Usuário ou senha incorretos", [{ text: "OK" }]);
+      }
     }
   };
 

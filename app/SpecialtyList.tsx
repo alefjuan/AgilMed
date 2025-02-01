@@ -10,11 +10,17 @@ import {
 import { useRouter, useGlobalSearchParams } from "expo-router";
 import { getSpecialties } from "../services/api"; // Ajuste o caminho conforme necessário
 import { Colors } from "/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors";
+import * as z from "zod";
 
 type Specialty = {
   id: number;
   name: string;
 };
+
+const specialtySchema = z.object({
+  id: z.number(),
+  name: z.string(),
+});
 
 export default function SpecialtyListScreen() {
   const router = useRouter();
@@ -26,7 +32,10 @@ export default function SpecialtyListScreen() {
     const fetchSpecialties = async () => {
       try {
         const data = await getSpecialties();
-        setSpecialties(data);
+
+        const validatedData = z.array(specialtySchema).parse(data);
+
+        setSpecialties(validatedData);
       } catch (error) {
         console.error("Erro ao buscar especialidades:", error);
       } finally {

@@ -10,11 +10,17 @@ import {
 import { useRouter, useGlobalSearchParams } from "expo-router";
 import { getClinics } from "../services/api";
 import { Colors } from "/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors";
+import * as z from "zod";
 
 type Clinic = {
   id: number;
   name: string;
 };
+
+const clinicSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+});
 
 export default function ClinicsScreen() {
   const router = useRouter();
@@ -26,7 +32,10 @@ export default function ClinicsScreen() {
     const fetchClinics = async () => {
       try {
         const data = await getClinics();
-        setClinics(data);
+
+        const validatedData = z.array(clinicSchema).parse(data);
+
+        setClinics(validatedData);
       } catch (error) {
         console.error("Erro ao buscar clínicas:", error);
       } finally {

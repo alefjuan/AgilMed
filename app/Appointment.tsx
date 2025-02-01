@@ -3,10 +3,22 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView } from "rea
 import { useGlobalSearchParams, useRouter } from "expo-router";
 import { Colors } from "/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors";
 import { createAppointment, getAvailableTimes } from "../services/api";
+import * as z from "zod";
 
 const getDaysInMonth = (month: number, year: number): number => {
   return new Date(year, month + 1, 0).getDate();
 };
+
+// Defina o esquema de validação com Zod
+const appointmentSchema = z.object({
+  doctorName: z.string().nonempty("Nome do médico é obrigatório"),
+  clinicName: z.string().nonempty("Nome da clínica é obrigatório"),
+  specialty: z.string().nonempty("Especialidade é obrigatória"),
+  date: z.string().nonempty("Data é obrigatória").regex(/^\d{4}-\d{2}-\d{2}$/, "Formato de data inválido"),
+  time: z.string().nonempty("Horário é obrigatório").regex(/^\d{2}:\d{2}:\d{2}$/, "Formato de horário inválido"),
+  client_id: z.number().positive("ID do cliente é obrigatório"),
+  doctor_id: z.number().positive("ID do médico é obrigatório"),
+});
 
 export default function AppointmentScreen() {
   const router = useRouter();
@@ -110,6 +122,16 @@ export default function AppointmentScreen() {
     };
 
     console.log("appointmentData:", appointmentData);
+
+    // Valide os dados de agendamento antes de enviá-los
+    try {
+      appointmentSchema.parse(appointmentData);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        Alert.alert("Erro de validação", error.errors[0].message);
+        return;
+      }
+    }
 
     setLoading(true);
 

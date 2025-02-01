@@ -9,6 +9,7 @@ import {
 import { useRouter, useGlobalSearchParams } from "expo-router";
 import { getDoctors } from "@/services/api";
 import { Colors } from "/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors";
+import * as z from "zod";
 
 type Doctor = {
   id: number;
@@ -16,6 +17,13 @@ type Doctor = {
   clinic_id: number;
   specialty_id: number;
 };
+
+const doctorSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  clinic_id: z.number(),
+  specialty_id: z.number(),
+});
 
 export default function DoctorListScreen() {
   const router = useRouter();
@@ -47,8 +55,12 @@ export default function DoctorListScreen() {
         );
         const data = await getDoctors();
         console.log("Fetched doctors data:", data);
+
+        // Valide os dados recebidos com Zod
+        const validatedData = z.array(doctorSchema).parse(data);
+
         // Filtra os médicos de acordo com a clínica e especialidade selecionadas
-        const filteredDoctors = data.filter((doctor: Doctor) => {
+        const filteredDoctors = validatedData.filter((doctor: Doctor) => {
           console.log(
             `Checking doctor: ${doctor.name}, clinic_id: ${doctor.clinic_id}, specialty_id: ${doctor.specialty_id}`
           );

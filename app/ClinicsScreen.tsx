@@ -8,33 +8,33 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useRouter, useGlobalSearchParams } from "expo-router";
-import { getSpecialties } from "../services/api"; // Ajuste o caminho conforme necessário
+import { getClinics } from "../services/api";
 import { Colors } from "/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors";
 
-type Specialty = {
+type Clinic = {
   id: number;
   name: string;
 };
 
-export default function SpecialtyListScreen() {
+export default function ClinicsScreen() {
   const router = useRouter();
-  const { clinicName, clinic_id, client_id } = useGlobalSearchParams();
-  const [specialties, setSpecialties] = useState<Specialty[]>([]);
+  const { client_id } = useGlobalSearchParams();
+  const [clinics, setClinics] = useState<Clinic[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchSpecialties = async () => {
+    const fetchClinics = async () => {
       try {
-        const data = await getSpecialties();
-        setSpecialties(data);
+        const data = await getClinics();
+        setClinics(data);
       } catch (error) {
-        console.error("Erro ao buscar especialidades:", error);
+        console.error("Erro ao buscar clínicas:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchSpecialties();
+    fetchClinics();
   }, []);
 
   if (loading) {
@@ -47,27 +47,24 @@ export default function SpecialtyListScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Clínica: {clinicName}</Text>
-      <Text style={styles.subtitle}>Escolha a especialidade</Text>
+      <Text style={styles.title}>Escolha a clínica</Text>
       <ScrollView contentContainerStyle={styles.buttonContainer}>
-        {specialties.map((specialty) => (
+        {clinics.map((clinic) => (
           <TouchableOpacity
-            key={specialty.id}
+            key={clinic.id}
             style={styles.button}
             onPress={() =>
               router.push({
-                pathname: "/DoctorListScreen",
+                pathname: "/SpecialtyList",
                 params: {
-                  specialty: specialty.name,
-                  specialty_id: specialty.id.toString(),
-                  clinicName,
-                  clinic_id,
-                  client_id,
+                  clinicName: clinic.name,
+                  clinic_id: clinic.id.toString(),
+                  client_id: client_id,
                 },
               })
             }
           >
-            <Text style={styles.buttonText}>{specialty.name}</Text>
+            <Text style={styles.buttonText}>{clinic.name}</Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -85,13 +82,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     color: Colors.light.primary,
-    marginBottom: 10,
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 16,
-    color: Colors.light.primary,
     marginBottom: 20,
+    fontWeight: "bold",
   },
   buttonContainer: {
     width: "100%",

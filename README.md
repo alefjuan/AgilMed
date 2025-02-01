@@ -9,16 +9,20 @@ Cada clínica terá seu App! Os clientes irão acessar e visualizar as respectiv
 ## Tecnologias
 
 - React Native
-- Express
-- Postgre
+- Express com Render
+- MySql com Railway
 - Expo 52
+
+## Backend
+
+- Repositório assistido pelo Render disponível em https://github.com/alefjuan/backend-agilmed
+- Requisições no link: https://backend-agilmed.onrender.com
 
 ## Funcionalidades Principais
 
 - ✅ Consultar dias e horários disponíveis para marcação de consultas.
 - ✅ Agendar consultas online diretamente pelo app.
-- ✅ Cancelamento e remarcação de consultas pelo usuário.
-- ✅ Visualização do histórico de consultas do paciente.
+- ✅ Diversidade de especialidades e profissionais.
 
 ### Funcionalidades Futuras
 
@@ -51,29 +55,27 @@ O modelo do banco de dados será relacional (PostgreSQL) através de uma API e p
 
 ---
 
-### **Sprint 2: 01/11 - 15/11**
+### **Sprint 2: 01/11 - 15/11✅**
 
 **Objetivo**: Conectar o app ao banco de dados.
 
-- Configurar **PostgreSQL**.
+- Configurar **MySql**.
 - Implementar **consulta de horários disponíveis**.
 - Iniciar a funcionalidade de **agendamento de consultas**.
 - Testes de usabilidade.
 
 ---
 
-### **Sprint 3: 16/11 - 30/11**
+### **Sprint 3: 16/11 - 30/11✅**
 
-**Objetivo**: Notificações e ajustes nas funcionalidades de agendamento.
+**Objetivo**: Funcionalidades de agendamento.
 
-- Desenvolver **notificações** (confirmação e lembretes).
-- Adicionar **cancelamento e remarcação** de consultas.
 - Implementar **visualização do histórico** de consultas.
 - Ajustes com base em feedback dos testes.
 
 ---
 
-### **Sprint 4: 01/12 - 15/12**
+### **Sprint 4: 01/12 - 15/12✅**
 
 **Objetivo**: Ajustes finais e otimizações.
 

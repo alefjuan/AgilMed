@@ -1,29 +1,52 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { useGlobalSearchParams, useRouter } from 'expo-router';
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { useGlobalSearchParams, useRouter } from "expo-router";
+import { FontAwesome } from "@expo/vector-icons";
+import { Colors } from "../constants/Colors";
 
 export default function ConfirmationScreen() {
   const router = useRouter();
-  const { specialty, date, time, doctor, id } = useGlobalSearchParams();
+  const { specialty, clinicName, date, time, doctorName, id } =
+    useGlobalSearchParams();
 
   return (
     <View style={styles.container}>
       <View style={styles.card}>
         <Text style={styles.successText}>Consulta agendada com sucesso!</Text>
-        <Image source={require('../assets/images/confirmation/check.png')} style={styles.card} />
+        <FontAwesome name="check-circle" size={100} color={Colors.light.primary} />
       </View>
       <View style={styles.infoContainer}>
-          <Text style={styles.infoText}>{date}</Text>
-          <Text style={styles.infoText}>{time}</Text>
-          <Text style={styles.infoText}>{specialty}</Text>
-          <Text style={styles.infoText}>{doctor}</Text>
-          <Text style={styles.infoText}>Id: {id}</Text>
-        </View>
-
-        <Text style={styles.footerText}>
+        <Text style={styles.infoText}>
+          <Text style={styles.boldText}>Clínica:</Text>{" "}
+          <Text style={styles.highlightText}>{clinicName}</Text>
+        </Text>
+        <Text style={styles.infoText}>
+          <Text style={styles.boldText}>Data:</Text>{" "}
+          <Text style={styles.highlightText}>{date}</Text>
+        </Text>
+        <Text style={styles.infoText}>
+          <Text style={styles.boldText}>Hora:</Text>{" "}
+          <Text style={styles.highlightText}>{time}</Text>
+        </Text>
+        <Text style={styles.infoText}>
+          <Text style={styles.boldText}>Especialidade:</Text>{" "}
+          <Text style={styles.highlightText}>{specialty}</Text>
+        </Text>
+        <Text style={styles.infoText}>
+          <Text style={styles.boldText}>Médico:</Text>{" "}
+          <Text style={styles.highlightText}>{doctorName}</Text>
+        </Text>
+      </View>
+      <TouchableOpacity onPress={() => router.push("/MyAppointmentsScreen")}>
+        <Text style={[styles.footerText, { textDecorationLine: "underline" }]}>
           Em caso de alterações, consulte "Meus agendamentos".
         </Text>
-      <TouchableOpacity onPress={() => router.push('/')} style={styles.homeButton}>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => router.push("/ClinicsScreen")}
+        style={styles.homeButton}
+      >
         <Text style={styles.homeButtonText}>Voltar ao início</Text>
       </TouchableOpacity>
     </View>
@@ -33,59 +56,65 @@ export default function ConfirmationScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1E1E1E',
-    alignItems: 'center',
+    backgroundColor: Colors.dark.background,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
   },
   card: {
-    backgroundColor: '#4FB0C6',
-    borderEndEndRadius:20,
-    borderStartEndRadius:20,
-    padding: 20,
-    alignItems: 'center',
-    width: '100%',
-    justifyContent: 'center', 
-    height:"60%"
-    
+    backgroundColor: Colors.dark.inputBackground,
+    borderRadius: 20,
+    padding: 30,
+    alignItems: "center",
+    width: "100%",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 4,
+    elevation: 5,
   },
   successText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#FFF',
+    fontSize: 20,
+    fontWeight: "700",
+    color: Colors.light.primary,
     marginBottom: 20,
-  },
-  icon: {
-    fontSize: 40,
-    marginBottom: 20,
-    
+    textAlign: "center",
   },
   infoContainer: {
-    marginBottom: 20,
+    marginVertical: 20,
+    alignItems: "center",
   },
   infoText: {
     fontSize: 16,
-    color: '#FFF',
-    textAlign: 'center',
-    marginVertical: 5,
+    color: "white",
+    marginBottom: 10,
+    textAlign: "center",
+  },
+  boldText: {
+    fontWeight: "bold",
+  },
+  highlightText: {
+    color: Colors.light.primary,
   },
   footerText: {
     fontSize: 14,
-    color: '#FFF',
-    textAlign: 'center',
-    marginTop: 20,
+    color: Colors.light.primary,
+    textAlign: "center",
+    marginVertical: 20,
   },
   homeButton: {
-    marginTop: 20,
-    backgroundColor: '#FFD700',
-    padding: 10,
+    backgroundColor: Colors.light.primary,
+    padding: 15,
     borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 4,
+    elevation: 5,
   },
   homeButtonText: {
-    color: '#1E1E1E',
-    fontWeight: '600',
-  },
-  check: {
-    width: 100,
-    height: 100,
-    marginBottom: 20,
+    color: Colors.dark.background,
+    fontWeight: "700",
+    textAlign: "center",
   },
 });

@@ -11,24 +11,33 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { Colors } from "../constants/Colors";
 import { useRouter } from "expo-router";
+import api from "../services/api";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function LoginScreen() {
   const router = useRouter();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    if (username === "Root" && password === "Root") {
-      router.push("/SpecialtyList");
-      Alert.alert("Sucesso", "Login realizado com sucesso!", [{ text: "OK" }]);
-    } else {
+  const handleLogin = async () => {
+    try {
+      const response = await api.post("/login", { email, password });
+      const clientId = response.data.client.id;
+      const clientName = response.data.client.name;
+      await AsyncStorage.setItem('client_id', clientId.toString());
+      await AsyncStorage.setItem('client_name', clientName);
+      Alert.alert("Sucesso", `Bem-vindo, ${clientName}! Login realizado com sucesso!`, [{ text: "OK" }]);
+      router.push({
+        pathname: "/ClinicsScreen",
+        params: { client_id: clientId },
+      });
+    } catch (error) {
       Alert.alert("Erro", "Usuário ou senha incorretos", [{ text: "OK" }]);
     }
   };
 
   return (
     <View style={styles.container}>
-      {/* Logo e Título */}
       <View style={styles.logoContainer}>
         <Image
           source={require("../assets/images/login/logo.png")}
@@ -38,22 +47,21 @@ export default function LoginScreen() {
         <Text style={styles.subtitle}>Sua saúde a qualquer hora</Text>
       </View>
 
-      {/* Campo de Usuário */}
       <View style={styles.inputContainer}>
         <Image
           source={require("../assets/images/login/person.png")}
           style={styles.icons}
         />
         <TextInput
-          placeholder="Usuário"
+          placeholder="Email"
           placeholderTextColor="#555"
           style={styles.input}
-          value={username}
-          onChangeText={setUsername}
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
         />
       </View>
 
-      {/* Campo de Senha */}
       <View style={styles.inputContainer}>
         <Image
           source={require("../assets/images/login/password.png")}
@@ -69,18 +77,15 @@ export default function LoginScreen() {
         />
       </View>
 
-      {/* Lembrar de mim */}
       <View style={styles.rememberContainer}>
         <FontAwesome name="check-square" size={18} color="white" />
         <Text style={styles.rememberText}>Lembrar de mim</Text>
       </View>
 
-      {/* Botão Entrar */}
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>LOGIN</Text>
       </TouchableOpacity>
 
-      {/* Esqueci minha senha e Cadastro */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>Esqueceu a senha?</Text>
         <Text style={styles.footerText}>

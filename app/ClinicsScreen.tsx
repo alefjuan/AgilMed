@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useRouter, useGlobalSearchParams } from "expo-router";
 import { getClinics } from "../services/api";
-import { Colors } from "/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors";
+import { Colors } from "../constants/Colors";
 import * as z from "zod";
 
 type Clinic = {

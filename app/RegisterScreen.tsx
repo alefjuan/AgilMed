@@ -8,7 +8,7 @@ import {
   Alert,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { Colors } from "/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors";
+import { Colors } from "../constants/Colors";
 import * as z from "zod";
 
 // Defina o esquema de validação com Zod

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView } from "react-native";
 import { useGlobalSearchParams, useRouter } from "expo-router";
-import { Colors } from "/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors";
+import { Colors } from "../constants/Colors";
 import { createAppointment, getAvailableTimes } from "../services/api";
 import * as z from "zod";
 

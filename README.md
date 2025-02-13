@@ -87,7 +87,7 @@ O modelo do banco de dados será relacional (PostgreSQL) através de uma API e p
 
 ---
 
-### **Sprint 5: 16/12 - 31/12**
+### **Sprint 5: 16/12 - 31/12✅**
 
 **Objetivo**: Preparação para o lançamento.
 
@@ -98,7 +98,7 @@ O modelo do banco de dados será relacional (PostgreSQL) através de uma API e p
 
 ---
 
-### **Sprint 6: 01/01 - 31/01**
+### \**Sprint 6: 01/01 - 31/01*✅\*
 
 **Objetivo**: Funcionalidades adicionais e entrega final.
 

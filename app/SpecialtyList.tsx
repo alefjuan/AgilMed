@@ -8,8 +8,8 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useRouter, useGlobalSearchParams } from "expo-router";
-import { getSpecialties } from "../services/api"; // Ajuste o caminho conforme necessário
-import { Colors } from "/home/alefjuan/projetosUtfpr/projMobile/AgilMed/agilmed/constants/Colors";
+import { getSpecialties } from "../services/api";
+import { Colors } from "../constants/Colors";
 import * as z from "zod";
 
 type Specialty = {

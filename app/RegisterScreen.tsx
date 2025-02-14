@@ -11,7 +11,6 @@ import { useRouter } from "expo-router";
 import { Colors } from "../constants/Colors";
 import * as z from "zod";
 
-// Defina o esquema de validação com Zod
 const formDataSchema = z.object({
   name: z.string().nonempty("Nome é obrigatório"),
   email: z.string().email("Email inválido"),
@@ -142,7 +141,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 15,
     fontSize: 16,
-    color: "#333",
+    color: "white",
   },
   button: {
     backgroundColor: Colors.light.primary,
